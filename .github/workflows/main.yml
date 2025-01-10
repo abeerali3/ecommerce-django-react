@@ -5,6 +5,9 @@ on:
     branches:
       - main
   
+  
+
+
 
 jobs:
   source:
@@ -41,16 +44,28 @@ jobs:
           source .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y wget unzip  # Install tools for downloading Edge and WebDriver
+          
+          # Install Microsoft Edge
+          wget https://packages.microsoft.com/keys/microsoft.asc
+          sudo apt-key add microsoft.asc
+          sudo wget https://packages.microsoft.com/microsoft-edge-stable.deb
+          sudo dpkg -i microsoft-edge-stable.deb
+          sudo apt-get install -f  # Fix dependencies if necessary
+          
+          # Install Edge WebDriver
+          wget https://msedgedriver.azureedge.net/$(curl -s https://msedgedriver.azureedge.net/LATEST_STABLE)edgedriver_linux64.zip
+          unzip msedgedriver_linux64.zip
+          sudo mv msedgedriver /usr/local/bin/
 
-
-      - name: Install npm packages and rub build command
+      - name: Install npm packages and run build command
         run: |
           cd ./frontend
           npm install
           npm run build
           rm -rf node_modules
 
-      # Cache the virtual environment instead of uploading it as an artifact
       - name: Cache virtual environment
         uses: actions/cache@v3
         with:
@@ -91,15 +106,12 @@ jobs:
           restore-keys: |
             venv-${{ runner.os }}-
       
-      # - name: Build and Run Docker Image for E2E locally
-      #   run: |
-      #     docker build -t ${{ secrets.DOCKER_USERNAME }}/blog-and-react-js-blog-e2e:latest .
-      #     docker run --name blog-and-react-js-blog-e2e --rm -d -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/blog-and-react-js-blog-e2e:latest
-
       - name: Run tests
         run: |
           source .venv/bin/activate
-          cd ./backend 
+          cd ./tests 
+          # Set environment variable for Edge WebDriver path
+          export EDGE_BIN_PATH=/usr/bin/microsoft-edge
           pytest --html-report=./report/report.html --title='PYTEST REPORT'
       
       - name: Upload test report
@@ -152,68 +164,4 @@ jobs:
         run: |
           echo "Tests failed, sending notification to developers."
       
-      - name: Download test report
-        uses: actions/download-artifact@v3
-        with:
-          name: test-report
-          path: ./backend/report
-
-      - name: Send Slack notification
-        uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          custom_payload: |
-            {
-              text: "Tests failed",
-              attachments: [{
-                "author_name": "github actions", // json
-                fallback: 'fallback',
-                color: 'danger',
-                title: 'CI Result',
-                text: 'The test job failed. Please check the logs on the GitHub Actions page for more details.',
-                fields: [],
-                actions: []
-              },
-              {
-                title: 'Test Report',
-                text: 'The test report is attached as a file.',
-                fields: [],
-                actions: [],
-                title_link: "${{ needs.test.outputs.artifact-url }}",
-                footer: '',
-                footer_icon: '',
-                image_url: '',
-                thumb_url: '',
-                author_name: '',
-                author_link: '',
-                author_icon: '',
-                video_html: '',
-                video_url: '',
-              }]
-            }        
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      
-      # - name: Send email notification
-      #   uses: dawidd6/action-send-mail@master
-      #   with:
-      #     server_address: smtp.gmail.com
-      #     server_port: 587
-      #     username: ${{ secrets.EMAIL_USERNAME }}
-      #     password: ${{ secrets.EMAIL_PASSWORD }}
-      #     subject: "CI/CD Pipeline Failed"
-      #     to: ${{ secrets.EMAIL_TO }}
-      #     from: ${{ secrets.EMAIL_FROM }}
-      #     body: |
-      #       The CI/CD pipeline has failed. Please check the logs for more details.
-
-      # - name: Open Jira issue
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       github.rest.issues.create({
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         title: 'CI/CD Pipeline Failed',
-      #         body: 'The CI/CD pipeline has failed. Please check the logs for more details.'
-      #       })
+      - name: Download tes
