@@ -32,18 +32,19 @@ function Header() {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar style={{ backgroundColor: "#CC886E", padding: "0.5rem 1rem" }} expand="lg" collapseOnSelect>
+
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-              <img src={logo} alt="Otaku Shop" />
+             <img src={logo} alt="Flame & Fragrance" style={{ width: '140px' }} />
             </Navbar.Brand>
           </LinkContainer>
 
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll"/>
 
           <Navbar.Collapse id="navbarScroll">
-            <SearchBox />
+          <SearchBox style={{ border: "2px solid #f0bb99", marginRight: "1rem" }} />
 
             <Nav
               className="ms-auto my-2 my-lg-0"

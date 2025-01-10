@@ -35,7 +35,7 @@ function SearchBox() {
         className="mr-sm-2 ml-sm-5"
       ></Form.Control>
 
-      <Button type="submit" variant="outline-success" className="p-2 mx-sm-2">
+      <Button style={{ color: "#735205" }} type="submit" variant="outline-success" className="p-2 mx-sm-2">
         Search
       </Button>
     </Form>

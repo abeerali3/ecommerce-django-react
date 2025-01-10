@@ -3,6 +3,18 @@ main {
   min-height: 80vh;
 }
 
+.btn-outline-success{
+border-color: #f0bb99!important;
+color: #735205!important;
+}
+
+
+.btn-outline-success:hover{
+  border-color: #735205!important;
+  color: #976841!important;
+  background-color: beige!important;
+
+  }
 /* Product.js */
 h3 {
   padding: 1rem 0;
@@ -25,40 +37,79 @@ h2 {
 }
 
 /* HomeScreen.js (Carousel) */
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-  display: flex;
+/* Ensure proper background color and text color for the carousel items */
+/* Ensure proper background color and text color for the carousel items */
+/* Ensure proper background color and text color for the carousel items */
+/* Banner styles */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400px;  /* Adjust the height of the banner */
+  background-color: #735205; /* Optional: Add a background color */
 }
 
-.carousel-caption {
+.banner-image {
+  width: 100%;  /* Make the banner image take up the entire width */
+  height: 100%;
+  object-fit: cover;  /* Ensure the image covers the whole container */
+}
+
+.banner-caption {
   position: absolute;
-  top: 0;
-  color: white;
+  top: 40%;  /* Move the text 5% upward from the vertical center */
+  left: 40%;  /* Move the text 10% to the left from the horizontal center */
+  transform: translate(-50%, -50%);  /* This still centers the text, but with adjusted 'top' and 'left' */
+  text-align: center;
+  color: rgba(255, 255, 255, 0.511);
 }
 
-.carousel-caption h4 {
-  color: #fff;
+.banner-caption h1 {
+  font-size: 3rem;  /* Adjust the title font size */
+  margin-bottom: 10px;
 }
 
-.carousel img {
-  display: block;
-  height: 300px;
-  padding: 30px;
-  margin: 40px;
-  margin-top: 50px;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
+.banner-caption p {
+  font-size: 2rem;  /* Adjust the description font size */
 }
 
-.carousel a {
-  margin: 0 auto;
+/* Optional: Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .banner {
+    height: 300px; /* Smaller height for mobile devices */
+  }
+}
+ /* Styling the h1 for the banner text */
+ .banner-caption h1 {
+  font-family: 'Merriweather', serif;  /* Use a stylish, readable font */
+  font-weight: bold;  /* Make the text bold */
+  font-size: 3rem;  /* Adjust size for emphasis */
+  color: #fff;  /* White color */
+  text-transform: uppercase;  /* All caps for a more refined look */
+  letter-spacing: 2px;  /* Add some space between letters */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);  /* Subtle shadow for the text */
+  background: linear-gradient(to right, #ff7f50, #d2691e);  /* Gradient background */
+  -webkit-background-clip: text;  /* Ensure the gradient is clipped to the text */
+  background-clip: text;  /* For non-webkit browsers */
+  padding: 20px 0;  /* Add some padding */
+  text-align: center;  /* Center align */
 }
 
-@media (max-width: 900px) {
-  .carousel-caption h2 {
-    font-size: 2.5vw;
-    color: white;
+.banner-caption p {
+  font-family: 'Merriweather', serif;  /* Use the same stylish, readable font as h1 */
+  font-size: 1.5rem;  /* Slightly smaller text */
+  color: #bb8377;  /* Lighter text color */
+  margin-top: 10px;  /* Add space between the heading and paragraph */
+  letter-spacing: 1px;  /* Add some space between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Darker shadow for the text */
+}
+
+/* Add responsive design for mobile view */
+@media (max-width: 768px) {
+  .banner-caption h1 {
+    font-size: 2rem;  /* Smaller size on mobile */
+  }
+
+  .banner-caption p {
+    font-size: 1rem;  /* Smaller paragraph size on mobile */
   }
 }

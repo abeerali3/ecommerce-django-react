@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 
 /* REACT-BOOTSTRAP */
 import { Row, Col } from "react-bootstrap";
+import bannerImage from '../21.jpg';
 
 /* COMPONENTS */
 import Product from "../components/Product";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
-import ProductCarousel from "../components/ProductCarousel";
 
 /* REACT - REDUX */
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +35,18 @@ function HomeScreen({ history }) {
 
   return (
     <div>
-      {!keyword && <ProductCarousel />}
+      {/* Banner Section */}
+      <div className="banner">
+        <img
+          src={bannerImage}  // Replace with the actual path to your image
+          alt="Banner"
+          className="banner-image"
+        />
+        <div className="banner-caption">
+          <h1>Welcome to Flame & Fragrance Store</h1>
+          <p>Where Elegance and Fragrance Meet!</p>
+        </div>
+      </div>
 
       <h1>Latest Products</h1>
 

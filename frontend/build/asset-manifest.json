@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.9cd215a4.chunk.css",
-    "main.js": "/static/js/main.bf0f7af9.chunk.js",
-    "main.js.map": "/static/js/main.bf0f7af9.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.b3325d9b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.b3325d9b.js.map",
-    "static/js/2.548bc473.chunk.js": "/static/js/2.548bc473.chunk.js",
-    "static/js/2.548bc473.chunk.js.map": "/static/js/2.548bc473.chunk.js.map",
-    "static/js/3.3989fcd6.chunk.js": "/static/js/3.3989fcd6.chunk.js",
-    "static/js/3.3989fcd6.chunk.js.map": "/static/js/3.3989fcd6.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.9cd215a4.chunk.css.map": "/static/css/main.9cd215a4.chunk.css.map",
-    "static/js/2.548bc473.chunk.js.LICENSE.txt": "/static/js/2.548bc473.chunk.js.LICENSE.txt",
-    "static/media/logo.462f53c2.png": "/static/media/logo.462f53c2.png"
+    "main.css": "http://localhost:8000/static/css/main.a2bfb40c.chunk.css",
+    "main.js": "http://localhost:8000/static/js/main.e2caf9ec.chunk.js",
+    "main.js.map": "http://localhost:8000/static/js/main.e2caf9ec.chunk.js.map",
+    "runtime-main.js": "http://localhost:8000/static/js/runtime-main.562f9470.js",
+    "runtime-main.js.map": "http://localhost:8000/static/js/runtime-main.562f9470.js.map",
+    "static/js/2.2c88e963.chunk.js": "http://localhost:8000/static/js/2.2c88e963.chunk.js",
+    "static/js/2.2c88e963.chunk.js.map": "http://localhost:8000/static/js/2.2c88e963.chunk.js.map",
+    "static/js/3.01be6cac.chunk.js": "http://localhost:8000/static/js/3.01be6cac.chunk.js",
+    "static/js/3.01be6cac.chunk.js.map": "http://localhost:8000/static/js/3.01be6cac.chunk.js.map",
+    "index.html": "http://localhost:8000/index.html",
+    "static/css/main.a2bfb40c.chunk.css.map": "http://localhost:8000/static/css/main.a2bfb40c.chunk.css.map",
+    "static/js/2.2c88e963.chunk.js.LICENSE.txt": "http://localhost:8000/static/js/2.2c88e963.chunk.js.LICENSE.txt",
+    "static/media/21.0d23919e.jpg": "http://localhost:8000/static/media/21.0d23919e.jpg",
+    "static/media/logo.b312c112.png": "http://localhost:8000/static/media/logo.b312c112.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b3325d9b.js",
-    "static/js/2.548bc473.chunk.js",
-    "static/css/main.9cd215a4.chunk.css",
-    "static/js/main.bf0f7af9.chunk.js"
+    "static/js/runtime-main.562f9470.js",
+    "static/js/2.2c88e963.chunk.js",
+    "static/css/main.a2bfb40c.chunk.css",
+    "static/js/main.e2caf9ec.chunk.js"
   ]
 }
