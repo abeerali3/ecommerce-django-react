@@ -2,11 +2,17 @@ import random
 import string
 import time
 from selenium import webdriver
+from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
+
+options = Options()
+options.add_argument('--headless')  # Enable headless mode for CI
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
 class TestSignUpSuite:
     def setup_method(self, method):
-        self.driver = webdriver.Edge()
+        self.driver = webdriver.Edge(options=options)
         self.driver.set_window_size(1552, 832)
         self.driver.get("http://127.0.0.1:8000/")
     

@@ -1,12 +1,19 @@
-import pytest
+import pytest 
+from selenium.webdriver.edge.options import Options
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+options = Options()
+options.add_argument('--headless')  # Enable headless mode for CI
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+
+driver = webdriver.Edge(options=options)
 
 @pytest.fixture(scope="function")
 def driver():
-    driver = webdriver.Chrome()
+    driver = webdriver.Edge(options=options)
     driver.set_window_size(1552, 832)
     yield driver
     driver.quit()
