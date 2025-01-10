@@ -99,7 +99,7 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          cd ./backend 
+          cd ./tests 
           pytest --html-report=./report/report.html --title='PYTEST REPORT'
       
       - name: Upload test report
