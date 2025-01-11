@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from base .models import Product, Review, Order, OrderItem, ShippingAddress
 
-# tests.py
 
 class ModelTests(TestCase):
 
