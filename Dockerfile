@@ -1,10 +1,10 @@
-FROM python:3
+FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-WORKDIR /code
+WORKDIR /app
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 EXPOSE 8000
 ENV DJANGO_SETTINGS_MODULE=backend.settings   
-CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:8000", "backend.wsgi:application"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
