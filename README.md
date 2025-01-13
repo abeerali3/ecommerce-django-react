@@ -1,15 +1,15 @@
 <h1 align=center>E-Commerce Website with Django + React & Redux</h1>
-<h2 align=center>Otaku House - Anime Merchandise and Cosplay Shop</h2>
+<h2 align=center>Flame & Fragrance </h2>
 
-## ✨ [Live Link - Otaku House](https://otakuhouse.herokuapp.com/)
+## ✨ [Live Link - Flame & Fragrance Store](https://final-project-latest-yh64.onrender.com)
 
 ### How to Run 🏃‍♀️
 
 ```shell
 1 Clone This Repo
 2 cd backend
-3 python -m venv env
-4 .\env\Scripts\activate
+3 python -m venv venv
+4 .venv\Scripts\activate
 5 pip install -r requirements.txt 
 6 python manage.py runserver
 
